@@ -14,7 +14,7 @@ public class Different {
     public static boolean checkDifferent(String iniString) {
     	if (iniString == null || iniString.length() == 0)
     		return true;
-        int[] hashTable = new int[128];
+        int[] hashTable = new int[65536];
         for (int i = 0; i < iniString.length(); i++) {
         	if (hashTable[iniString.charAt(i)]++ == 1)
         		return false;
@@ -22,7 +22,14 @@ public class Different {
         return true;
     }
 
+    public boolean checkDifferent(String iniString) {
+        // write code here
+        return !iniString.matches(".*(.).*(\\1).*");
+    }
+
     public static void main(String[] args){
     	System.out.println(checkDifferent("acbdbesy"));
     }
 }
+
+//第二种方式通过一个
